@@ -17,6 +17,7 @@ int main () {
     for (int i = 0; i < n; ++i){
         std::cout << sin(numbers[i]) << '\t' << mysin(numbers[i], accuracy) << std::endl;
     }
+    delete [] numbers;
 }
 
 double factorial(double n){
@@ -32,7 +33,7 @@ double mysin(double x, double n){
         double term = pow(x, 2*i+1)/factorial(2*i+1);
         if (i%2 == 1){
             result -= term;
-        } else {
+        } else { 
             result += term;
         }
     }
