@@ -1,38 +1,27 @@
 #include <iostream>
-#define PI 3.14159265359
 
-const double M = 20;
-const double A = 0;
-const double B = PI/2;
-const double H = (B - A)/M;
-
-double pow(double);
+double pow(double, double);
 double dabs(double);
 double factorial(double);
-double sign(double);
 double sin(double);
 double cos(double);
-
+double arctg(double);
 
 
 int main () {
-    double x = 0, y = 0;
-    for (int i = 0; 1; ++i){
-    x = A + i * H;
-    if(x > B){
-        break;
+    int step_num;
+    std::cin >> step_num;
+    double step = (double)1 / step_num;
+    double min = 100; 
+    for(double x = 0; x <= 1; x += step){
+        double result = sin(x) + cos(x) - 2 * arctg(x);
+        if (dabs(result) < dabs(min)){
+            min = result;
+        }
     }
-    if(x == PI/4){
-        std::cout << "0" << std::endl;
-        continue;
-    }
-    y = sin(x) - cos(x);
-    std::cout << y << std::endl;
-    };
-
+    std::cout << min;
+    return 0;
 }
-
-
 
 double dabs(double x){
     if (x>=0){
@@ -63,26 +52,14 @@ double pow(double x, double y){
     
     return res;
 }
-double sign(double x){
-    if(x>0){
-        return 1;
-    } else if (x < 0){
-        return -1;
-    } else {
-        return 0;
-    }
-}
 
 double sin(double x){
-    while(dabs(x) > (2 * PI)){
-        x-= sign(x) * 2 * PI;
-    }
     double result = x;
-    for(int i = 1; i < 8; ++i){
+    for(int i = 1; i < 16; ++i){
         double term = pow(x, 2*i+1)/factorial(2*i+1);
         if (i%2 == 1){
             result -= term;
-        } else {
+        } else { 
             result += term;
         }
     }
@@ -90,15 +67,25 @@ double sin(double x){
 }
 
 double cos(double x){
-    while(dabs(x) > (2 * PI)){
-        x-= sign(x) * 2 * PI;
-    }
     double result = 1;
-    for(int i = 1; i < 8; ++i){
+    for(int i = 1; i < 16; ++i){
         double term = pow(x, 2*i)/factorial(2*i);
         if (i%2 == 1){
             result -= term;
-        } else {
+        } else { 
+            result += term;
+        }
+    }
+    return result;
+}
+
+double arctg(double x){
+    double result = x;
+    for(int i = 1; i < 16; ++i){
+        double term = pow(x, 2*i+1)/(2*i + 1);
+        if (i%2 == 1){
+            result -= term;
+        } else { 
             result += term;
         }
     }
