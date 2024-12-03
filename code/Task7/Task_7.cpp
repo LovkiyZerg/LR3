@@ -1,33 +1,14 @@
 #include <iostream>
+#include <cmath>
 
 
-double dabs(double x){
-    if (x >= 0){
-        return x;
-    } else {
-        return -x;
-    }
-}
-
-double pow(double x, double y){
-    double res = 1;
-    if(y >=0){
-        for (int i = 0; i < y; ++i){
-        res = res*x;
-        };
-    } else {
-        for (int i = 0; i < dabs(y); ++i){
-        res = (res) * (1/x);
-        };
-    }
-    
-    return res;
-}
-
+void get_double(double&);
 
 int main() {
-    int x = 0;
-    std::cin >> x;
+    setlocale(LC_ALL, "Russian");
+    double x = 0;
+    std::cout << "Введите число, до которого считать числа Армстронга (положительное число)" << std::endl;
+    get_double(x);
     for(int i = 1; i <= x; ++i){
         int num = i;
         int num2 = i;
@@ -49,4 +30,20 @@ int main() {
         };
     };
     return 0;
+}
+
+
+void get_double(double& x){
+    x = 0;
+    while(1){
+        std::cin >> x;
+        if(std::cin.fail() || x <= 0){
+            std::cout << "Неверный ввод! Попробуйте ещё раз" << std::endl;
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');
+            x = 0;
+        } else {
+            break;
+        };
+    };
 }

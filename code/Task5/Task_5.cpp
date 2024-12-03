@@ -1,5 +1,7 @@
 #include <iostream>
 
+
+void get_int(int&);
 double pow(double, double);
 double dabs(double);
 double factorial(double);
@@ -9,8 +11,10 @@ double arctg(double);
 
 
 int main () {
+    setlocale(LC_ALL, "Russian");
     int step_num;
-    std::cin >> step_num;
+    std::cout << "Введите колисество частей, на которые нужно разбить интервал (целое положительное число)"<< std::endl;
+    get_int(step_num);
     double step = (double)1 / step_num;
     double min = 100; 
     for(double x = 0; x <= 1; x += step){
@@ -21,6 +25,22 @@ int main () {
     }
     std::cout << min;
     return 0;
+}
+
+
+void get_int(int& x){
+    x = 0;
+    while(1){
+        std::cin >> x;
+        if(std::cin.fail() || x <= 0){
+            std::cout << "Неверный ввод! Попробуйте ещё раз" << std::endl;
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');
+            x = 0;
+        } else {
+            break;
+        };
+    };
 }
 
 double dabs(double x){
