@@ -24,6 +24,7 @@ int main()
         system("clear");
         std::cout << "Использую цикл for составить программу вычисления значений функции y = sin(x) - cos(x)" << std::endl;
         std::cout << "на отрезке [A, B] в точках Xi = A + i * H, где H = (B - A) / M, M = 20, A = 0, B = π / 2." << std::endl;
+        std::cout << "Выполнил Багаев Леонид" << std::endl;
         double x = 0, y = 0;
         for (int i = 0; 1; ++i)
         {

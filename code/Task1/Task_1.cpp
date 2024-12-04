@@ -8,7 +8,7 @@ int main () {
     do{
         std::system("clear");
         std::cout << "Используя цикл while вычислить N = ∑(i=1, n=30) (ai - bi)^2, где a и b определены по формуле:" << std::endl << "ai = i, если i нечётное(i/2 , если i чётное) bi = i^2, если i нечётное(i/3, если i чётное)"<< std::endl;
-        std::cout << "Выполнил Багаев Леонид" << std::cout;
+        std::cout << "Выполнил Багаев Леонид" << std::endl;
         double result = 0;
         double a = 0, b = 0;
         for (int i = 1; i <=30; ++i){

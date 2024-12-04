@@ -14,6 +14,7 @@ int main () {
         system("clear");
         std::cout << "Используя цикл do while найти сумму ряда с точностью ε = 10^(-3), общий член которого dn =1/2^n + 1/3^n." << std::endl;
         std::cout << "При составлении программы считать, что точность достигнута, если dn < ε" << std::endl;
+        std::cout << "Выполнил Багаев Леонид" << std::endl;
         double result = 0;
         double d;
         double i = 0;
