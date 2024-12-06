@@ -184,7 +184,7 @@ long double my_ln(long double x)
     {
         T = pow(x-1, i)/i;
         //T *= (x - 1) / i;
-        result += (1 - (i % 2) * 2) * T;
+        result += (-1 + (i % 2) * 2) * T;
     }
     for (int i = 0; i < count; ++i)
     {
